@@ -9,7 +9,7 @@ import time
 
 try:
     print("Connecting to server...")
-    yag = yagmail.SMTP("beggear@gmail.com", "ykmvzxjwwhediuef")
+    yag = yagmail.SMTP(SENDER_EMAIL, SMTP_KEY)
     print("Connected.")
 except Exception as err:
     print(err)
@@ -28,7 +28,7 @@ while True:
     if "CRITICAL" in log:
         try:
             print("Sending email to recipient...")
-            yag.send("lowziyi08@gmail.com", subject, content)
+            yag.send(RECEIVER_EMAIL, subject, content)
             print("Email sent successfully.")
             break
         except Exception as err:
